@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import OneDay from '../components/OneDay';
 import LineGraph from '../components/LineGraph';
+import InputArea from '../components/InputArea';
 
 const Telemetry = () => {
   return (
@@ -15,12 +16,13 @@ const Telemetry = () => {
       style={{ marginTop: 20 }}
     >
       <Grid item lg={7}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h5" align="center">
           Daily Activities
         </Typography>
         <LineGraph />
       </Grid>
       <Grid item lg={3}>
+        <InputArea />
         <OneDay />
       </Grid>
     </Grid>

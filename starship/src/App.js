@@ -3,10 +3,11 @@ import './App.css';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Telemetry from './pages/Telemetry';
 import AuthRoute from './utils/AuthRoute';
+import GuestRoute from './utils/GuestRoute';
 import { LOGIN_USER } from './redux/types';
 import axios from 'axios';
 
@@ -25,7 +26,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <GuestRoute exact path="/" component={Login} />
           <AuthRoute exact path="/telemetry" component={Telemetry} />
         </Switch>
       </Router>

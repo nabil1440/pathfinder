@@ -9,8 +9,9 @@ const setAuthHeader = token => {
 export const loginUser = (credentials, history) => async dispatch => {
   try {
     const res = await axios.post('/login', credentials);
-    dispatch({ type: LOGIN_USER });
+    // This order is important, without this, subsequent API calls will not work if they require authorization
     setAuthHeader(res.data.token);
+    dispatch({ type: LOGIN_USER });
     // Redirect the user to '/telemnetry'
     history.push('telemetry');
   } catch (err) {

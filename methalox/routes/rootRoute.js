@@ -5,9 +5,9 @@ const { Op } = require('sequelize');
 const { Day } = require('../models');
 // Helper functions
 const {
+  rangeOptions,
   getOneDayRange,
-  getRange,
-  rangeOptions
+  getRange
 } = require('../utils/dateFuncs');
 // Attributes
 const { dayAtts } = require('../utils/atts');
@@ -15,11 +15,11 @@ const { dayAtts } = require('../utils/atts');
 // One day by taking an ISO string in the query params
 router.get('/one', async (req, res) => {
   try {
-    const { ISOString } = req.query;
-    if (!ISOString) return res.status(400).json({ msg: 'Send ISOString' });
+    const { dateString } = req.query;
+    if (!dateString) return res.status(400).json({ msg: 'Send dateString' });
 
-    // Destructure the range
-    const [start, end] = getOneDayRange(ISOString);
+    // Destructure range
+    const [start, end] = getOneDayRange(new Date(dateString).toISOString());
     // Query options
     const options = {
       where: { date: { [Op.between]: [start, end] } },
@@ -37,13 +37,12 @@ router.get('/one', async (req, res) => {
 // Get date for a range
 router.get('/range', async (req, res) => {
   try {
-    const { startISO, endISO, range } = req.query;
-    if (startISO && !endISO)
+    const { startDate, endDate, range } = req.query;
+    if (startDate && !endDate)
       return res.status(400).json({ msg: 'Send both start and end' });
 
-    // Destructure range
-    const [start, end] = getRange(startISO, endISO);
-    // Query options
+    // range function
+    const [start, end] = getRange(startDate, endDate);
     const [options, reverse] = rangeOptions(start, end, range);
 
     const result = await Day.findAll(options || {});
@@ -65,7 +64,8 @@ router.post('/', async (req, res) => {
       gaming,
       social,
       nonCoding,
-      comment
+      comment,
+      rating
     } = req.body;
 
     const day = await Day.create({
@@ -75,7 +75,8 @@ router.post('/', async (req, res) => {
       gaming,
       social,
       nonCoding,
-      comment
+      comment,
+      rating
     });
 
     return res.status(200).json({ msg: 'Success', day });
@@ -100,11 +101,15 @@ router.put('/', async (req, res) => {
     const { date } = req.query;
     if (!date) return res.status(404).json({ msg: 'Specify date' });
 
-    const day = await Day.findOne({ where: { date } });
+    const [start, end] = getOneDayRange(new Date(date).toISOString());
+
+    const day = await Day.findOne({
+      where: { date: { [Op.between]: [start, end] } }
+    });
 
     day.projectCoding = projectCoding || day.projectCoding;
     day.otherCoding = otherCoding || day.otherCoding;
-    day.gaming = gaming || day.gaming;
+    day.gaming = gaming === null ? day.gaming : gaming;
     day.social = social || day.social;
     day.nonCoding = nonCoding || day.nonCoding;
     day.comment = comment || day.comment;

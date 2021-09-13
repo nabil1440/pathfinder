@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res, next) => {
   try {
     const token = req.header('Authorization').split('Bearer ')[1];
-    console.log({ token });
     if (!token) return res.status(401).json({ msg: 'Unauthorized' });
 
     // Verify the token
