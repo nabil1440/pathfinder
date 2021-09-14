@@ -23,6 +23,9 @@ app.post('/signup', async (req, res) => {
   try {
     const { name, password } = req.body;
 
+    if (process.env.NODE_ENV === 'production')
+      return res.status(401).json({ msg: 'Forbidden!' });
+
     const hashedPassword = await new Promise((resolve, reject) => {
       bcrypt.hash(password, 10, (err, hash) => {
         if (err) reject(err);
