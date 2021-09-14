@@ -47,9 +47,9 @@ app.post('/signup', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
-    const { password } = req.body;
+    const { name, password } = req.body;
 
-    const user = await User.findOne();
+    const user = await User.findOne({ where: { name } });
 
     if (!user) return res.sendStatus(404);
 
