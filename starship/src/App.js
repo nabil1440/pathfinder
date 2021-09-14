@@ -11,6 +11,8 @@ import GuestRoute from './utils/GuestRoute';
 import { LOGIN_USER } from './redux/types';
 import axios from 'axios';
 
+import baseUrl from './utils/baseUrl';
+
 // Handle the case when there is already a token in the localStorage
 const token = localStorage.BearerToken;
 
@@ -19,7 +21,7 @@ if (token) {
   axios.defaults.headers.common['Authorization'] = token;
 }
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = baseUrl;
 
 const App = () => {
   return (
