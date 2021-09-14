@@ -3,7 +3,9 @@
 **.vscode 
 **.xlsx 
 **test.js
-**.git
+**/.git
+**/seeders
 **-create-days.js
 /methalox/public
 **baseUrl.js
+**/dist
