@@ -56,8 +56,8 @@ const AddNew = () => {
     add({
       date: new Date(`${year}-${month}-${date}`).toISOString(),
       projectCoding: parseInt(projectCoding) || 0,
-      otherCoding: otherCoding === '' ? null : parseInt(otherCoding),
-      nonCoding: nonCoding === '' ? null : parseInt(nonCoding),
+      otherCoding: parseInt(otherCoding) || 0,
+      nonCoding: parseInt(nonCoding) || 0,
       social: parseInt(social) || 0,
       gaming: parseInt(gaming) || 0,
       rating: parseFloat(rating) || null,
