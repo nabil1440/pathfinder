@@ -107,13 +107,14 @@ router.put('/', async (req, res) => {
       where: { date: { [Op.between]: [start, end] } }
     });
 
-    day.projectCoding = projectCoding || day.projectCoding;
-    day.otherCoding = otherCoding || day.otherCoding;
+    day.projectCoding =
+      projectCoding === null ? day.projectCoding : projectCoding;
+    day.otherCoding = otherCoding === null ? day.otherCoding : otherCoding;
     day.gaming = gaming === null ? day.gaming : gaming;
-    day.social = social || day.social;
-    day.nonCoding = nonCoding || day.nonCoding;
+    day.social = social === null ? day.social : social;
+    day.nonCoding = nonCoding === null ? day.nonCoding : nonCoding;
     day.comment = comment || day.comment;
-    day.rating = rating || day.rating;
+    day.rating = rating === null ? day.rating : rating;
 
     await day.save();
 
