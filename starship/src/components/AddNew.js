@@ -15,6 +15,8 @@ import { dates, months } from '../utils/dateElements';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewData } from '../redux/actions/dataActions';
 
+import parseAddition from '../utils/parseAddition';
+
 const useStyles = makeStyles({
   makeWay: {
     margin: '10px 0 10px 0'
@@ -55,11 +57,11 @@ const AddNew = () => {
 
     add({
       date: new Date(`${year}-${month}-${date}`).toISOString(),
-      projectCoding: parseInt(projectCoding) || 0,
-      otherCoding: parseInt(otherCoding) || 0,
-      nonCoding: parseInt(nonCoding) || 0,
-      social: parseInt(social) || 0,
-      gaming: parseInt(gaming) || 0,
+      projectCoding: parseAddition(projectCoding) || 0,
+      otherCoding: parseAddition(otherCoding) || 0,
+      nonCoding: parseAddition(nonCoding) || 0,
+      social: parseAddition(social) || 0,
+      gaming: parseAddition(gaming) || 0,
       rating: parseFloat(rating) || null,
       comment: comment || null
     });
@@ -159,6 +161,9 @@ const AddNew = () => {
               name="Project Coding"
               label="Project Coding"
               value={projectCoding}
+              helperText={
+                projectCoding ? parseAddition(projectCoding) : 'Invalid!'
+              }
               onChange={e => setProjectCoding(e.target.value)}
               placeholder="Project Coding"
             />
@@ -168,6 +173,7 @@ const AddNew = () => {
               name="Other Coding"
               label="Other Coding"
               value={otherCoding}
+              helperText={otherCoding ? parseAddition(otherCoding) : 'Invalid!'}
               onChange={e => setOtherCoding(e.target.value)}
               placeholder="Other Coding"
             />
@@ -177,6 +183,7 @@ const AddNew = () => {
               name="Non-Coding"
               label="Non-Coding"
               value={nonCoding}
+              helperText={nonCoding ? parseAddition(nonCoding) : 'Invalid!'}
               onChange={e => setNonCoding(e.target.value)}
               placeholder="Non-Coding"
             />
@@ -186,6 +193,7 @@ const AddNew = () => {
               name="Gaming"
               label="Gaming"
               value={gaming}
+              helperText={gaming ? parseAddition(gaming) : 'Invalid!'}
               onChange={e => setGaming(e.target.value)}
               placeholder="Gaming"
             />
@@ -195,6 +203,7 @@ const AddNew = () => {
               name="Social"
               label="Social"
               value={social}
+              helperText={social ? parseAddition(social) : 'Invalid!'}
               onChange={e => setSocial(e.target.value)}
               placeholder="Social"
             />
