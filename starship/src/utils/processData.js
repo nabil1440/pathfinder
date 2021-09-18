@@ -10,40 +10,40 @@ const processData = rawData => {
     label: 'Project Coding (minutes)',
     data: [],
     fill: false,
-    backgroundColor: 'rgba(0, 176, 138, 0.3)',
-    borderColor: 'rgba(0, 176, 138, 0.4)'
+    backgroundColor: 'rgba(0, 176, 138, 1)',
+    borderColor: 'rgba(0, 176, 138, 0.6)'
   };
 
   let otherCoding = {
     label: 'Other Coding (minutes)',
     data: [],
     fill: false,
-    backgroundColor: 'rgba(0, 106, 176, 0.3)',
-    borderColor: 'rgba(0, 106, 176, 0.4)'
+    backgroundColor: 'rgba(49, 127, 255, 1)',
+    borderColor: 'rgba(49, 127, 255, 0.6)'
   };
 
   let nonCoding = {
     label: 'Non-coding (minutes)',
     data: [],
     fill: false,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    borderColor: 'rgba(0, 0, 0, 0.4)'
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    borderColor: 'rgba(255, 255, 255, 0.6)'
   };
 
   let gaming = {
     label: 'Gaming (minutes)',
     data: [],
     fill: false,
-    backgroundColor: 'rgb(116, 0, 176, 0.3)',
-    borderColor: 'rgba(116, 0, 176, 0.4)'
+    backgroundColor: 'rgb(217, 112, 255, 1)',
+    borderColor: 'rgba(217, 112, 255, 0.6)'
   };
 
   let social = {
     label: 'Social Media (minutes)',
     data: [],
     fill: false,
-    backgroundColor: 'rgba(255, 0, 0, 0.3)',
-    borderColor: 'rgba(255, 0, 0, 0.4)'
+    backgroundColor: 'rgba(243, 78, 131, 1)',
+    borderColor: 'rgba(243, 78, 131, 0.6)'
   };
 
   // const schema = [

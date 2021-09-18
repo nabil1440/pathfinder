@@ -39,7 +39,7 @@ const LoginForm = props => {
         label="Password"
       />
 
-      <Button fullWidth type="submit" variant="contained">
+      <Button fullWidth type="submit" variant="contained" color="secondary">
         LOGIN
       </Button>
     </form>

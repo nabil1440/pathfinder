@@ -154,7 +154,12 @@ const DateRangeSelector = () => {
           </Select>
         </FormControl>
 
-        <Button type="submit" variant="contained" style={{ marginTop: 12 }}>
+        <Button
+          type="submit"
+          variant="contained"
+          style={{ marginTop: 12 }}
+          color="secondary"
+        >
           Find out
         </Button>
       </form>

@@ -82,6 +82,7 @@ const UpdateDay = () => {
         onClick={() => setOpen(true)}
         style={{ marginLeft: 15 }}
         disabled={!Object.keys(oneDay).length}
+        color="secondary"
       >
         Update Current
       </Button>

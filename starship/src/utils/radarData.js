@@ -11,14 +11,14 @@ const radarData = (rawData = {}) => {
       {
         label: 'Minutes',
         data: [
-          rawData.projectCoding || null,
-          rawData.otherCoding || null,
-          rawData.nonCoding || null,
-          rawData.gaming || null,
-          rawData.social || null
+          rawData.projectCoding === null ? null : rawData.projectCoding,
+          rawData.otherCoding === null ? null : rawData.otherCoding,
+          rawData.nonCoding === null ? null : rawData.nonCoding,
+          rawData.gaming === null ? null : rawData.gaming,
+          rawData.social === null ? null : rawData.social
         ],
-        backgroundColor: 'rgba(0, 180, 127, 0.3)',
-        borderColor: 'rgba(0, 180, 127, 0.4)',
+        backgroundColor: 'rgba(0, 176, 138, .5)',
+        borderColor: 'rgba(0, 176, 138, 1)',
         borderWidth: 1
       }
     ]

@@ -89,7 +89,7 @@ const AddNew = () => {
 
   return (
     <>
-      <Button variant="contained" onClick={() => setOpen(true)}>
+      <Button variant="contained" onClick={() => setOpen(true)} color="primary">
         Add New
       </Button>
       <Dialog

@@ -9,13 +9,8 @@ import InputArea from '../components/InputArea';
 
 const Telemetry = () => {
   return (
-    <Grid
-      container
-      justifyContent="center"
-      spacing={2}
-      style={{ marginTop: 20 }}
-    >
-      <Grid item lg={7}>
+    <Grid container justifyContent="center" spacing={2}>
+      <Grid item lg={7} style={{ marginTop: 20 }}>
         <Typography variant="h5" align="center">
           Daily Activities
         </Typography>

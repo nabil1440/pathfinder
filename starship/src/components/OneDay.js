@@ -112,7 +112,7 @@ const OneDay = () => {
             </Select>
           </FormControl>
 
-          <Button fullWidth type="submit" variant="contained">
+          <Button fullWidth type="submit" variant="contained" color="primary">
             Find out
           </Button>
         </form>

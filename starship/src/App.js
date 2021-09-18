@@ -1,5 +1,10 @@
 import './App.css';
 
+import createTheme from '@material-ui/core/styles/createTheme';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -24,15 +29,33 @@ if (token) {
 axios.defaults.baseURL = baseUrl;
 
 const App = () => {
+  const theme = createTheme({
+    palette: {
+      type: 'dark',
+      primary: {
+        main: '#00b096'
+      },
+      secondary: {
+        main: '#f34e83'
+      }
+    }
+  });
+
   return (
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <GuestRoute exact path="/" component={Login} />
-          <AuthRoute exact path="/telemetry" component={Telemetry} />
-        </Switch>
-      </Router>
-    </Provider>
+    <MuiThemeProvider theme={theme}>
+      <Paper square={true} style={{ minHeight: '100vh' }}>
+        <Grid container>
+          <Provider store={store}>
+            <Router>
+              <Switch>
+                <GuestRoute exact path="/" component={Login} />
+                <AuthRoute exact path="/telemetry" component={Telemetry} />
+              </Switch>
+            </Router>
+          </Provider>
+        </Grid>
+      </Paper>
+    </MuiThemeProvider>
   );
 };
 

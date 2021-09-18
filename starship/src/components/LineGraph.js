@@ -14,25 +14,25 @@ const LineGraph = () => {
     scales: {
       x: {
         ticks: {
-          color: 'green'
+          color: '#fff'
         },
         grid: {
-          color: '#eee'
+          color: '#666'
         }
       },
       y: {
         ticks: {
-          color: 'green'
+          color: '#fff'
         },
         grid: {
-          color: '#eee'
+          color: '#666'
         }
       }
     },
     plugins: {
       legend: {
         labels: {
-          color: 'green'
+          color: '#fff'
         }
       }
     }
@@ -51,7 +51,7 @@ const LineGraph = () => {
     <>
       <DateRangeSelector />
       <RangeSelector />
-      <Line data={processData(days)} />
+      <Line data={processData(days)} options={options} />
     </>
   );
 };

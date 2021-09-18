@@ -7,13 +7,8 @@ import LoginForm from '../components/LoginForm';
 
 const Login = props => {
   return (
-    <Grid
-      container
-      justifyContent="center"
-      spacing={2}
-      style={{ marginTop: '20vh' }}
-    >
-      <Grid item lg={2}>
+    <Grid container justifyContent="center" spacing={2}>
+      <Grid item lg={2} style={{ marginTop: '20vh' }}>
         <Typography variant="h5" align="center">
           Login
         </Typography>
