@@ -66,10 +66,10 @@ const UpdateDay = () => {
     setProjectCoding(oneDay.projectCoding === null ? '' : oneDay.projectCoding);
     setOtherCoding(oneDay.otherCoding === null ? '' : oneDay.otherCoding);
     setNonCoding(oneDay.nonCoding === null ? '' : oneDay.nonCoding);
-    setGaming(oneDay.gaming === null ? '' : oneDay.projectCoding);
-    setSocial(oneDay.social === null ? '' : oneDay.projectCoding);
-    setRating(oneDay.rating === null ? '' : oneDay.projectCoding);
-    setComment(oneDay.comment === null ? '' : oneDay.projectCoding);
+    setGaming(oneDay.gaming === null ? '' : oneDay.gaming);
+    setSocial(oneDay.social === null ? '' : oneDay.social);
+    setRating(oneDay.rating === null ? '' : oneDay.rating);
+    setComment(oneDay.comment === null ? '' : oneDay.comment);
     setOpen(false);
   }, [oneDay]);
 
