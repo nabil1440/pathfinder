@@ -63,13 +63,13 @@ const UpdateDay = () => {
     setMonth((new Date(oneDay.date).getMonth() + 1).toString());
     setDate(new Date(oneDay.date).getDate().toString());
 
-    setProjectCoding(oneDay.projectCoding || '');
-    setOtherCoding(oneDay.otherCoding || '');
-    setNonCoding(oneDay.nonCoding || '');
-    setGaming(oneDay.gaming || '');
-    setSocial(oneDay.social || '');
-    setRating(oneDay.rating || '');
-    setComment(oneDay.comment || '');
+    setProjectCoding(oneDay.projectCoding === null ? '' : oneDay.projectCoding);
+    setOtherCoding(oneDay.otherCoding === null ? '' : oneDay.otherCoding);
+    setNonCoding(oneDay.nonCoding === null ? '' : oneDay.nonCoding);
+    setGaming(oneDay.gaming === null ? '' : oneDay.projectCoding);
+    setSocial(oneDay.social === null ? '' : oneDay.projectCoding);
+    setRating(oneDay.rating === null ? '' : oneDay.projectCoding);
+    setComment(oneDay.comment === null ? '' : oneDay.projectCoding);
     setOpen(false);
   }, [oneDay]);
 
