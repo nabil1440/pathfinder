@@ -54,7 +54,10 @@ const rangeOptions = (start, end, range) => {
   if (start && end) {
     const s = new Date(start).toISOString();
     const e = new Date(end).toISOString();
-    return [{ where: { date: { [Op.between]: [s, e] } } }, false];
+    return [
+      { where: { date: { [Op.between]: [s, e] } }, order: [['date', 'ASC']] },
+      false
+    ];
   } else if (range) {
     return [{ limit: range, order: [['date', 'DESC']] }, true];
   } else {
