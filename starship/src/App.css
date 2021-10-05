@@ -2,3 +2,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
 }
+
+.MuiPaper-root {
+  background-color: #000a0a !important;
+}
